@@ -65,19 +65,22 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cookieParser());
-app.use(express.json());
+
+
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://expensia-eight.vercel.app"
+    "https://expensia-eight.vercel.app",
+    "https://expensiaaa.vercel.app"
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+app.use(express.json());
 
+app.use(cookieParser());
 
 // Routes
 app.get('/', (req, res) => {
